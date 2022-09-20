@@ -1,8 +1,97 @@
 basePath: /
+definitions:
+  model.Book:
+    properties:
+      author:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      rating:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
 host: localhost:3000
 info:
   contact: {}
   title: Get Books APIs
   version: "1.0"
-paths: {}
+paths:
+  /api/v1/book:
+    get:
+      description: Get all books
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            items:
+              $ref: '#/definitions/model.Book'
+            type: array
+      summary: Get all books
+      tags:
+      - Books
+    post:
+      description: Create new book
+      parameters:
+      - description: Add book
+        in: body
+        name: book
+        required: true
+        schema:
+          $ref: '#/definitions/model.Book'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/model.Book'
+      summary: Create new book
+      tags:
+      - Books
+  /api/v1/book/{id}:
+    delete:
+      description: Delete book by id
+      parameters:
+      - description: Book ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Book Successfully deleted
+          schema:
+            type: string
+      summary: Delete book by id
+      tags:
+      - Books
+    get:
+      description: Get book by Id
+      parameters:
+      - description: Book ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/model.Book'
+      summary: Get book by ID
+      tags:
+      - Books
 swagger: "2.0"

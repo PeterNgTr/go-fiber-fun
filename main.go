@@ -20,7 +20,6 @@ const BOOK_PATH string = "/book"
 const DEFAULT_DB = "books.db"
 
 func setupRoutes(app *fiber.App) {
-
 	app.Get(API_PATH+BOOK_PATH, book.GetBooks)
 
 	app.Get(API_PATH+BOOK_PATH+"/:id", book.GetBook)

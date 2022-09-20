@@ -19,6 +19,12 @@ By the end of this tutorial, we will have covered:
 
 * `go get` to install the required package
 
+### Swagger docs
+
+```
+swag init --parseDependency --parseInternal
+```
+
 ### Building our REST API Endpoints
 
 We’ll create the following endpoints:
