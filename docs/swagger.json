@@ -1,0 +1,11 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Get Books APIs",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {}
+}
