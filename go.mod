@@ -7,5 +7,6 @@ require (
 	github.com/gofiber/swagger v0.1.2
 	github.com/jaswdr/faker v1.15.0
 	github.com/jinzhu/gorm v1.9.16
+	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/swag v1.8.5
 )
