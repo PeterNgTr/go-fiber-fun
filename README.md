@@ -25,6 +25,10 @@ By the end of this tutorial, we will have covered:
 swag init --parseDependency --parseInternal
 ```
 
+Visiting http://localhost:3000/docs/index.html#/ after starting the server
+
+![swagger docs](./docs/swagger.png)
+
 ### Building our REST API Endpoints
 
 We’ll create the following endpoints:

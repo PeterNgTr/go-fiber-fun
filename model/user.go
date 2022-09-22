@@ -9,3 +9,8 @@ type User struct {
 	Password string `gorm:"not null" json:"password"`
 	Names    string `json:"names"`
 }
+
+type LoginInput struct {
+	Identity string `json:"identity"`
+	Password string `json:"password"`
+}

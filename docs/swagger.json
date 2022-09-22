@@ -116,21 +116,32 @@
                 }
             }
         },
-        "/api/v1/login": {
+        "/login": {
             "post": {
-                "description": "Login",
-                "consumes": [
-                    "multipart/form-data"
-                ],
+                "description": "Generate jwt token",
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "Authentication"
+                ],
                 "summary": "Login",
+                "parameters": [
+                    {
+                        "description": "get token",
+                        "name": "book",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.LoginInput"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Bearer abcd",
+                        "description": "ok",
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/model.Response"
                         }
                     }
                 }
@@ -160,6 +171,31 @@
                     "type": "integer"
                 },
                 "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.LoginInput": {
+            "type": "object",
+            "properties": {
+                "identity": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Response": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
                     "type": "string"
                 }
             }

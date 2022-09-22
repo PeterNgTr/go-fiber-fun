@@ -54,7 +54,13 @@ func getUserByUsername(u string) (*model.User, error) {
 	return &user, nil
 }
 
-// Login get user and password
+// @Tags Authentication
+// @Summary Login
+// @Description Generate jwt token
+// @Produce  json
+// @Param        book  body      model.LoginInput  true  "get token"
+// @Success 200 {object} model.Response "ok"
+// @Router /login [post]
 func Login(c *fiber.Ctx) error {
 	type LoginInput struct {
 		Identity string `json:"identity"`
@@ -126,5 +132,5 @@ func Login(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
-	return c.JSON(fiber.Map{"status": "success", "message": "Success login", "token": t})
+	return c.JSON(fiber.Map{"status": "success", "message": "Success login", "data": t})
 }

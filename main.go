@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
+	jwtware "github.com/gofiber/jwt/v3"
 	"github.com/gofiber/swagger"
 	"github.com/jaswdr/faker"
 	"github.com/jinzhu/gorm"
@@ -76,13 +78,13 @@ func main() {
 	// @description
 	// @host localhost:3000
 	// @BasePath /
-	app.Get("/docs/*", swagger.HandlerDefault) // default
+	app.Get("/docs/*", swagger.HandlerDefault)
 	initDatabase()
 
-	// JWT Middleware
-	//app.Use(jwtware.New(jwtware.Config{
-	//SigningKey: []byte(os.Getenv("SECRET")),
-	//}))
+	//JWT Middleware
+	app.Use(jwtware.New(jwtware.Config{
+		SigningKey: []byte(os.Getenv("SECRET")),
+	}))
 
 	setupRoutes(app)
 	fmt.Printf("Listening at http://localhost:" + PORT)
