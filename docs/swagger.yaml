@@ -94,4 +94,17 @@ paths:
       summary: Get book by ID
       tags:
       - Books
+  /api/v1/login:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Bearer abcd
+          schema:
+            type: string
+      summary: Login
 swagger: "2.0"

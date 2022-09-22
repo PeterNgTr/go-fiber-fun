@@ -123,6 +123,26 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/v1/login": {
+            "post": {
+                "description": "Login",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Login",
+                "responses": {
+                    "200": {
+                        "description": "Bearer abcd",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

@@ -56,6 +56,25 @@ Listening at http://localhost:3000
  └───────────────────────────────────────────────────┘ 
 
 ```
+### Authentication
+
+By default, once you start the server, admin user would be created, using the generated token to call the other APIs
+```
+curl --request POST \
+  --url http://localhost:3000/login \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "identity": "admin",
+  "password": "12345678"
+}'
+{"message":"Success login","status":"success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjQxMDE4MzgsInVzZXJfaWQiOjEsInVzZXJuYW1lIjoiYWRtaW4ifQ.I9BR0cyt2lhYfnpWGrWaPR4K9-G0xgOK27UFOPTogPU"}% 
+```
+
+```
+curl --request GET \
+  --url http://localhost:3000/api/v1/book \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjQxMDE5NDQsInVzZXJfaWQiOjEsInVzZXJuYW1lIjoiYWRtaW4ifQ.7l5uLq4XvMGU1ZxRxZWj6f6jXXaM86EX2hq5xGIMyik'
+```
 
 ### Testing the Endpoints
 
