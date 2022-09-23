@@ -29,6 +29,14 @@ Visiting http://localhost:3000/docs/index.html#/ after starting the server
 
 ![swagger docs](./docs/swagger.png)
 
+### Docker
+
+Start the service with docker
+
+```
+docker-compose up --build
+```
+
 ### Building our REST API Endpoints
 
 We’ll create the following endpoints:
